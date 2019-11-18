@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create] do 
       post '/follow/:id', to: 'relationships#create', as: 'users_follow'
       post '/unfollow/:id', to: 'relationships#destroy', as: 'users_unfollow'
-      get '/:id/followers', to: 'users#followers', as: 'users_followers'
+      get '/followers', to: 'users#followers', as: 'users_followers'
     end
   end
 end
