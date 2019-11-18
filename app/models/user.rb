@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_many :relation, foreign_key: 'follower_id', dependent: :destroy
   has_many :reverse_relation, foreign_key: 'followed_id',
-           class_name:  'Relation',
-           dependent:   :destroy
+           class_name: 'Relation',
+           dependent: :destroy
   has_many :followed_users, through: :relation, source: :followed
   has_many :followers, through: :reverse_relation, source: :follower
 
